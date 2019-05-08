@@ -2,10 +2,12 @@ package Figuren;
 
 import Main.*;
 
+
 public class Läufer extends Figur {
     public Läufer(boolean farbeWeiß){
-        if(farbeWeiß){ this.symbol = 'l'; }
-        else {
+        if(farbeWeiß){
+            this.symbol = 'l';
+        } else {
             this.symbol = 'L';
         }
         this.farbeWeiß = farbeWeiß;
@@ -15,7 +17,10 @@ public class Läufer extends Figur {
         int deltaX, deltaY;
 
         deltaX = (von.getX() - nach.getX());
+        if(deltaX < 0) deltaX = deltaX*-1;
+
         deltaY = (von.getY() - nach.getY());
+        if(deltaY < 0) deltaY = deltaY*-1;
 
         //darf nicht stehen bleiben
         if(deltaX == 0) return false;

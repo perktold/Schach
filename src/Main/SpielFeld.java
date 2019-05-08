@@ -1,9 +1,6 @@
 package Main;
 
-import Figuren.Bauer;
-import Figuren.Figur;
-import Figuren.Läufer;
-import Figuren.Turm;
+import Figuren.*;
 
 public class SpielFeld {
     private Figur[][] schachmatrix = new Figur[8][8];
@@ -17,16 +14,24 @@ public class SpielFeld {
             }
         }
 
-        this.schachmatrix[0][0] = new Turm(false);
+        this.schachmatrix[0][7] = new Dame(true);
+        this.schachmatrix[0][0] = new Dame(false);
+
+/*      this.schachmatrix[0][0] = new Turm(false);
         this.schachmatrix[7][0] = new Turm(false);
         this.schachmatrix[0][7] = new Turm(true);
         this.schachmatrix[7][7] = new Turm(true);
 
+        this.schachmatrix[2][0] = new Läufer(false);
+        this.schachmatrix[5][0] = new Läufer(false);
+        this.schachmatrix[2][7] = new Läufer(true);
+        this.schachmatrix[5][7] = new Läufer(true);
 
         for(int i = 0; i < schachmatrix[1].length; i++){
             this.schachmatrix[i][1] = new Bauer(false);
             this.schachmatrix[i][6] = new Bauer(true);
         }
+ */
 
     }
 
