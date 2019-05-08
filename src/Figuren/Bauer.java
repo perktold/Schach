@@ -14,7 +14,10 @@ public class Bauer extends Figur {
 
     //ganz viel TODO: finish dis
     public boolean zugMöglich(SpielFeld spielFeld, Koordinaten von, Koordinaten nach) {
+        int deltaX, deltaY;
 
+        deltaX = (von.getX() - nach.getX());
+        deltaY = (von.getY() - nach.getY());
 
         if(farbeWeiß){
 
@@ -22,7 +25,7 @@ public class Bauer extends Figur {
             //ein bauer darf nicht nach hinten oder nur auf die seite gehen
             if(von.getY() >= nach.getY()) return false;
 
-            //ein bauer darf nur zwei nach vorne, wenn er auf zeile 7 steht
+            //ein bauer darf nur zwei nach vorne, wenn er auf zeile 7 oder 2 steht
             if(nach.getY() != nach.getY() +1){
                 if(von.getY() != 6 || nach.getY() != 4) return false;
             }
@@ -34,8 +37,6 @@ public class Bauer extends Figur {
                 //wenn auf endposition keine figur steht => zug ungültig (ob figur gegner ist wird in Figur klasse geprüft)
                 if(spielFeld.getFigur(nach.getX(), nach.getY()).getSymbol() == ' ') return false;
             }
-
-
 
         }
 

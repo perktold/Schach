@@ -36,14 +36,16 @@ public class Main {
         return Integer.parseInt(in);
     }
     public static Koordinaten getIn(String out){
-        Pattern pattern = Pattern.compile("[a-h][1-8]$");
         while(true) {
             System.out.println(out);
             try {
-                String strIn = scannerIn.next(pattern);
-                return new Koordinaten((strIn.charAt(0) - 'a'), strIn.charAt(1) - '1');
+                String strIn = scannerIn.next();
+                if(strIn.matches("[a-h][1-8]$"))
+                {
+                    return new Koordinaten((strIn.charAt(0) - 'a'), strIn.charAt(1) - '1');
+                }
             }catch (Exception e){
-                System.out.println("das hat nicht geklappt, versuchen sie es erneut");
+                System.err.println("das hat nicht geklappt, versuchen sie es erneut");
             }
         }
     }
@@ -52,7 +54,7 @@ public class Main {
             try {
                 return scannerIn.nextLine();
             }catch(Exception e){
-                System.err.println("Fehler mit scanner und so, hilfe");
+                e.printStackTrace();
             }
         }
     }

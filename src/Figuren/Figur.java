@@ -11,6 +11,9 @@ public class Figur {
     public boolean zugMöglich(SpielFeld feld, Koordinaten von, Koordinaten ziel) {
 
 
+        if(von.equals(ziel)){
+            return false;
+        }
         if(feld.getFigur(von.getX(), von.getY()).getSymbol() == ' '){
             return false;
         }
