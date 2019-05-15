@@ -50,13 +50,13 @@ public class SpielFeld {
         if(figur.getFarbeWeiß() != weißAmZug) return false;
 
         if(figur.zugMöglich(this, koordinatenFigur, nach)) {
-            swap(koordinatenFigur, nach);
-        }
+            move(koordinatenFigur, nach);
+        }else return false;
 
         return true;
     }
 
-    private void swap(Koordinaten von, Koordinaten nach){
+    private void move(Koordinaten von, Koordinaten nach){
         schachmatrix[nach.getX()][nach.getY()] = schachmatrix[von.getX()][von.getY()];
         schachmatrix[von.getX()][von.getY()] = new Figur();
     }

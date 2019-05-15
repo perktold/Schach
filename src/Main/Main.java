@@ -20,7 +20,6 @@ public class Main {
         spielFeld.ausgabe();
 
         while (!spielFeld.schachmatt()) {
-            boolean b = true;
             while (!spielFeld.spielZug(
                     weißAmZug,
                     getIn("mit welcher Figur willst du ziehen " + weißAmZug),
@@ -35,7 +34,7 @@ public class Main {
     public static int strToInt(String in){
         return Integer.parseInt(in);
     }
-    public static Koordinaten getIn(String out){
+    private static Koordinaten getIn(String out){
         while(true) {
             System.out.println(out);
             try {
