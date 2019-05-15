@@ -17,19 +17,22 @@ public class Bauer extends Figur {
         int deltaX, deltaY;
 
         deltaX = (von.getX() - nach.getX());
+        if(deltaX < 0) deltaX = deltaX*-1;
+
         deltaY = (von.getY() - nach.getY());
+        if(deltaY < 0) deltaY = deltaY*-1;
 
         if(farbeWeiß){
 
-
             //ein bauer darf nicht nach hinten oder nur auf die seite gehen
-            if(von.getY() >= nach.getY()) return false;
+            if(von.getY() <= nach.getY()) return false;
 
-            //ein bauer darf nur zwei nach vorne, wenn er auf zeile 7 oder 2 steht
-            if(nach.getY() != nach.getY() +1){
-                if(von.getY() != 6 || nach.getY() != 4) return false;
+            //ein bauer darf nur zwei nach vorne, wenn er auf zeile 7 steht
+            if(von.getY() != nach.getY() +1){
+                if(!(von.getY() == 6 && nach.getY() == 4)) return false;
             }
 
+            //TODO: doesn't work
             if(von.getX() != nach.getX()){
                 //wenn endsposition nicht eins mehr oder eins weniger als ausgangsposition => zug ungültig
                 if(nach.getX() -1 != von.getX() || nach.getX() +1 != von.getX()) return false;
@@ -37,7 +40,6 @@ public class Bauer extends Figur {
                 //wenn auf endposition keine figur steht => zug ungültig (ob figur gegner ist wird in Figur klasse geprüft)
                 if(spielFeld.getFigur(nach.getX(), nach.getY()).getSymbol() == ' ') return false;
             }
-
         }
 
         return super.zugMöglich(spielFeld, von, nach);

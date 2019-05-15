@@ -13,11 +13,8 @@ public class SpielFeld {
                 this.schachmatrix[i][j] = new Figur();
             }
         }
-
-        this.schachmatrix[0][7] = new Dame(true);
-        this.schachmatrix[0][0] = new Dame(false);
-
-/*      this.schachmatrix[0][0] = new Turm(false);
+/*
+        this.schachmatrix[0][0] = new Turm(false);
         this.schachmatrix[7][0] = new Turm(false);
         this.schachmatrix[0][7] = new Turm(true);
         this.schachmatrix[7][7] = new Turm(true);
@@ -27,11 +24,14 @@ public class SpielFeld {
         this.schachmatrix[2][7] = new Läufer(true);
         this.schachmatrix[5][7] = new Läufer(true);
 
+        this.schachmatrix[3][0] = new Dame(false);
+        this.schachmatrix[3][7] = new Dame(true);
+*/
         for(int i = 0; i < schachmatrix[1].length; i++){
             this.schachmatrix[i][1] = new Bauer(false);
             this.schachmatrix[i][6] = new Bauer(true);
         }
- */
+
 
     }
 
