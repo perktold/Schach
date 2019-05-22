@@ -31,16 +31,7 @@ public class Bauer extends Figur {
             if(von.getY() != nach.getY() +1){
                 if(!(von.getY() == 6 && nach.getY() == 4)) return false;
             }
-
-            if(von.getX() != nach.getX()){
-                //wenn endsposition nicht eins mehr oder eins weniger als ausgangsposition => zug ungültig
-                if(nach.getX() != von.getX()+1 && nach.getY() != von.getX()-1) return false;
-
-                //wenn auf endposition keine figur steht => zug ungültig
-                if(spielFeld.getFigur(nach.getX(), nach.getY()).getSymbol() == ' ') return false;
-            }
         }
-
         if(!farbeWeiß){
 
             //ein bauer darf nicht nach hinten oder nur auf die seite gehen
@@ -50,14 +41,14 @@ public class Bauer extends Figur {
             if(von.getY() != nach.getY() -1){
                 if(!(von.getY() == 1 && nach.getY() == 3)) return false;
             }
+        }
 
-            if(von.getX() != nach.getX()){
-                //wenn endsposition X nicht eins mehr oder eins weniger als ausgangsposition => zug ungültig
-                if(!(nach.getX() == von.getX()+1 || nach.getY() == von.getX()-1)) return false;
+        if(von.getX() != nach.getX()){
+                //wenn endsposition nicht eins mehr oder eins weniger als ausgangsposition => zug ungültig
+                if(!(nach.getX()+1 == von.getX() || nach.getY()-1 == von.getX())) return false;
 
                 //wenn auf endposition keine figur steht => zug ungültig
                 if(spielFeld.getFigur(nach.getX(), nach.getY()).getSymbol() == ' ') return false;
-            }
         }
 
         return super.zugMöglich(spielFeld, von, nach);
