@@ -1,12 +1,19 @@
 package Figuren;
 
+import Main.Koordinaten;
+import Main.SpielFeld;
+
 public class Springer extends Figur {
-    Springer(boolean farbeweiß){
-         if(farbeWeiß){
+    public Springer(boolean farbeWeiß){
+        this.farbeWeiß = farbeWeiß;
+        if(farbeWeiß){
             this.symbol = 's';
         } else {
             this.symbol = 'S';
         }
-        this.farbeWeiß = farbeWeiß;
+    }
+    public boolean zugMöglich(SpielFeld spielFeld, Koordinaten von, Koordinaten nach) {
+
+        return super.zugMöglich(spielFeld, von, nach);
     }
 }

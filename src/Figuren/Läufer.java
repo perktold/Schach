@@ -5,12 +5,12 @@ import Main.*;
 
 public class Läufer extends Figur {
     public Läufer(boolean farbeWeiß){
+        this.farbeWeiß = farbeWeiß;
         if(farbeWeiß){
             this.symbol = 'l';
         } else {
             this.symbol = 'L';
         }
-        this.farbeWeiß = farbeWeiß;
     }
 
     public boolean zugMöglich(SpielFeld spielFeld, Koordinaten von, Koordinaten nach) {

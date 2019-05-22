@@ -5,12 +5,12 @@ import Main.SpielFeld;
 
 public class Dame extends Figur {
     public Dame(boolean farbeweiß){
+        this.farbeWeiß = farbeweiß;
         if(farbeweiß){
             this.symbol = 'd';
         } else{
             this.symbol = 'D';
         }
-        this.farbeWeiß = farbeweiß;
     }
     public boolean zugMöglich(SpielFeld feld, Koordinaten von, Koordinaten nach) {
         int deltaX, deltaY;

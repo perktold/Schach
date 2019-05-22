@@ -4,15 +4,16 @@ import Main.*;
 
 public class Bauer extends Figur {
     public Bauer(boolean farbeWeiß){
+        this.farbeWeiß = farbeWeiß;
         if(farbeWeiß){
             this.symbol = 'b';
         } else {
             this.symbol = 'B';
         }
-        this.farbeWeiß = farbeWeiß;
     }
 
     //ganz viel TODO: finish dis
+    //TODO: seitwärts schlagen funktioniert nur in eine Richtung
     public boolean zugMöglich(SpielFeld spielFeld, Koordinaten von, Koordinaten nach) {
         int deltaX, deltaY;
 

@@ -5,12 +5,12 @@ import Main.SpielFeld;
 
 public class Turm  extends Figur{
     public Turm(boolean farbeweiß){
+        this.farbeWeiß = farbeweiß;
         if(farbeweiß) {
             this.symbol = 't';
         } else {
             this.symbol = 'T';
         }
-        this.farbeWeiß = farbeweiß;
     }
     public boolean zugMöglich(SpielFeld spielFeld, Koordinaten von, Koordinaten nach) {
         int deltaX, deltaY;
