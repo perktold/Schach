@@ -1,7 +1,6 @@
 package Main;
 
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 //weiße figuren bekommen kleingeschriebene symbole, schwarze bekommen groß geschriebene
 //weiße figuren sind unten, schwarze oben

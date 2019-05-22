@@ -28,8 +28,8 @@ public class SpielFeld {
         this.schachmatrix[3][7] = new Dame(true);
 */
         for(int i = 0; i < schachmatrix[1].length; i++){
-            this.schachmatrix[i][1] = new Bauer(false);
-            this.schachmatrix[i][6] = new Bauer(true);
+            this.schachmatrix[i][4] = new Bauer(false);
+            this.schachmatrix[i][5] = new Bauer(true);
         }
 
 
