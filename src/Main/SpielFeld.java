@@ -7,41 +7,6 @@ public class SpielFeld {
     private boolean weissAmZug = true;
     private Frame frame;
 
-	SpielFeld(Frame frame){
-        this.frame = frame;
-        for(int i = 0; i < schachmatrix.length; i++){
-            for(int j = 0; j < schachmatrix[i].length; j++){
-                this.schachmatrix[i][j] = new Figur(); //nix gut
-            }
-        }
-
-        this.schachmatrix[0][0] = new Turm(false);
-        this.schachmatrix[7][0] = new Turm(false);
-        this.schachmatrix[0][7] = new Turm(true);
-        this.schachmatrix[7][7] = new Turm(true);
-
-//        this.schachmatrix[2][0] = new Laeufer(false);
-//        this.schachmatrix[5][0] = new Laeufer(false);
-//        this.schachmatrix[2][7] = new Laeufer(true);
-//        this.schachmatrix[5][7] = new Laeufer(true);
-
-        this.schachmatrix[1][0] = new Springer(false);
-        this.schachmatrix[6][0] = new Springer(false);
-        this.schachmatrix[1][7] = new Springer(true);
-        this.schachmatrix[6][7] = new Springer(true);
-
-        this.schachmatrix[3][0] = new Dame(false);
-        this.schachmatrix[3][7] = new Dame(true);
-
-
-        for(int i = 0; i < schachmatrix[1].length; i++){
-            this.schachmatrix[i][1] = new Bauer(false);
-            this.schachmatrix[i][6] = new Bauer(true);
-        }
-
-
-    }
-
 	SpielFeld(Frame frame, Figur[][] schachmatrix){
 		this.frame = frame;
 		this.schachmatrix = schachmatrix;

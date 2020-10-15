@@ -3,17 +3,17 @@ package Figuren;
 import Main.*;
 
 
-public class Läufer extends Figur {
-    public Läufer(boolean farbeWeiß){
-        this.farbeWeiß = farbeWeiß;
-        if(farbeWeiß){
+public class Laeufer extends Figur {
+    public Laeufer(boolean farbeWeiss){
+        this.farbeWeiss = farbeWeiss;
+        if(farbeWeiss){
             this.symbol = 'l';
         } else {
             this.symbol = 'L';
         }
     }
 
-    public boolean zugMöglich(SpielFeld spielFeld, Koordinaten von, Koordinaten nach) {
+    public boolean zugMöglich(SpielFeld spielFeld, Position von, Position nach) {
         int deltaX, deltaY;
 
         deltaX = (von.getX() - nach.getX());
@@ -29,7 +29,7 @@ public class Läufer extends Figur {
         //muss diagonal laufen
         if(deltaX != deltaY) return false;
 
-        return super.zugMöglich(spielFeld, von, nach);
+        return super.zugMoeglich(spielFeld, von, nach);
     }
 
 }
