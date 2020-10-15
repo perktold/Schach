@@ -4,13 +4,14 @@ import Figuren.*;
 
 public class SpielFeld {
     private Figur[][] schachmatrix = new Figur[8][8];
+    private boolean weissAmZug = true;
     private Frame frame;
 
-    SpielFeld(Frame frame){
+	SpielFeld(Frame frame){
         this.frame = frame;
         for(int i = 0; i < schachmatrix.length; i++){
             for(int j = 0; j < schachmatrix[i].length; j++){
-                this.schachmatrix[i][j] = new Figur();
+                this.schachmatrix[i][j] = new Figur(); //nix gut
             }
         }
 
@@ -19,10 +20,10 @@ public class SpielFeld {
         this.schachmatrix[0][7] = new Turm(true);
         this.schachmatrix[7][7] = new Turm(true);
 
-        this.schachmatrix[2][0] = new Läufer(false);
-        this.schachmatrix[5][0] = new Läufer(false);
-        this.schachmatrix[2][7] = new Läufer(true);
-        this.schachmatrix[5][7] = new Läufer(true);
+//        this.schachmatrix[2][0] = new Laeufer(false);
+//        this.schachmatrix[5][0] = new Laeufer(false);
+//        this.schachmatrix[2][7] = new Laeufer(true);
+//        this.schachmatrix[5][7] = new Laeufer(true);
 
         this.schachmatrix[1][0] = new Springer(false);
         this.schachmatrix[6][0] = new Springer(false);
@@ -41,11 +42,16 @@ public class SpielFeld {
 
     }
 
+	SpielFeld(Frame frame, Figur[][] schachmatrix){
+		this.frame = frame;
+		this.schachmatrix = schachmatrix;
+	}
+	
     public Figur getFigur(int x, int y){
         return schachmatrix[x][y];
     }
 
-    public boolean spielZug(boolean weißAmZug, Koordinaten koordinatenFigur, Koordinaten nach){
+    public boolean spielZug(Position koordinatenFigur, Position nach){
         Figur figur = getFigur(koordinatenFigur.getX(), koordinatenFigur.getY());
 
         if(figur.getSymbol() == ' ') return false;
@@ -53,16 +59,16 @@ public class SpielFeld {
         if(nach.getX() < 0 || nach.getX() > 7) return false;
         if(nach.getY() < 0 || nach.getY() > 7) return false;
 
-        if(figur.getFarbeWeiß() != weißAmZug) return false;
+        if(figur.getFarbeWeiss() != weissAmZug) return false;
 
-        if(figur.zugMöglich(this, koordinatenFigur, nach)) {
+        if(figur.zugMoeglich(this, koordinatenFigur, nach)) {
             move(koordinatenFigur, nach);
         }else return false;
 
         return true;
     }
 
-    private void move(Koordinaten von, Koordinaten nach){
+    private void move(Position von, Position nach){
         schachmatrix[nach.getX()][nach.getY()] = schachmatrix[von.getX()][von.getY()];
         schachmatrix[von.getX()][von.getY()] = new Figur();
     }
@@ -121,8 +127,18 @@ public class SpielFeld {
         }
 
         frame.set(4*8+2, 8*2+1, '+');
+        
+        //debug
+        //TODO: find out wtf is going on here
+        for(int y = 0; y < schachmatrix.length; y++){ 
+        	for(int x = 0; x < schachmatrix[y].length; x++){
+        		System.out.print(schachmatrix[y][x].getSymbol());
+        	}
+       		System.out.println();
+        }
+        //\debug
 
-        for(int y = 0; y < 8; y++){ for(int x = 0; x < 8; x++){
+        for(int y = 0; y < 7; y++){ for(int x = 0; x < 7; x++){
                 frame.set((4*x)+4, (y*2)+2, schachmatrix[x][y].getSymbol());
             }
         }
@@ -133,8 +149,7 @@ public class SpielFeld {
         return false;
     }
 
-    public boolean schachmatt(){
+    public boolean schachMatt(){
         return false;
     }
-
 }

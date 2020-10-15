@@ -3,9 +3,9 @@ package Figuren;
 import Main.*;
 
 public class Bauer extends Figur {
-    public Bauer(boolean farbeWeiß){
-        this.farbeWeiß = farbeWeiß;
-        if(farbeWeiß){
+    public Bauer(boolean farbeWeiss){
+        this.farbeWeiss = farbeWeiss;
+        if(farbeWeiss){
             this.symbol = 'b';
         } else {
             this.symbol = 'B';
@@ -13,8 +13,8 @@ public class Bauer extends Figur {
     }
 
     //ganz viel TODO: finish dis
-    //TODO: seitwärts schlagen funktioniert nur in eine Richtung
-    public boolean zugMöglich(SpielFeld spielFeld, Koordinaten von, Koordinaten nach) {
+    //TODO: seitwaerts schlagen funktioniert nur in eine Richtung
+    public boolean zugMoeglich(SpielFeld spielFeld, Position von, Position nach) {
         int deltaX, deltaY;
 
         deltaX = (von.getX() - nach.getX());
@@ -23,7 +23,7 @@ public class Bauer extends Figur {
         deltaY = (von.getY() - nach.getY());
         if(deltaY < 0) deltaY = deltaY*-1;
 
-        if(farbeWeiß){
+        if(farbeWeiss){
 
             //ein bauer darf nicht nach hinten oder nur auf die seite gehen
             if(von.getY() <= nach.getY()) return false;
@@ -33,7 +33,7 @@ public class Bauer extends Figur {
                 if(!(von.getY() == 6 && nach.getY() == 4)) return false;
             }
         }
-        if(!farbeWeiß){
+        if(!farbeWeiss){
 
             //ein bauer darf nicht nach hinten oder nur auf die seite gehen
             if(von.getY() >= nach.getY()) return false;
@@ -45,13 +45,13 @@ public class Bauer extends Figur {
         }
 
         if(von.getX() != nach.getX()){
-                //wenn endsposition nicht eins mehr oder eins weniger als ausgangsposition => zug ungültig
+                //wenn endsposition nicht eins mehr oder eins weniger als ausgangsposition => zug ungueltig
                 if(!(nach.getX()+1 == von.getX() || nach.getY()-1 == von.getX())) return false;
 
-                //wenn auf endposition keine figur steht => zug ungültig
+                //wenn auf endposition keine figur steht => zug ungueltig
                 if(spielFeld.getFigur(nach.getX(), nach.getY()).getSymbol() == ' ') return false;
         }
 
-        return super.zugMöglich(spielFeld, von, nach);
+        return super.zugMoeglich(spielFeld, von, nach);
     }
 }

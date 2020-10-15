@@ -1,18 +1,18 @@
 package Figuren;
 
-import Main.Koordinaten;
+import Main.Position;
 import Main.SpielFeld;
 
 public class Dame extends Figur {
-    public Dame(boolean farbeweiß){
-        this.farbeWeiß = farbeweiß;
-        if(farbeweiß){
+    public Dame(boolean farbeweiss){
+        this.farbeWeiss = farbeweiss;
+        if(farbeweiss){
             this.symbol = 'd';
         } else{
             this.symbol = 'D';
         }
     }
-    public boolean zugMöglich(SpielFeld feld, Koordinaten von, Koordinaten nach) {
+    public boolean zugMoeglich(SpielFeld feld, Position von, Position nach) {
         int deltaX, deltaY;
 
         // calculate delta X and Y
@@ -30,6 +30,6 @@ public class Dame extends Figur {
 
         if(!geraderZug && !diagonalerZug) return false;
 
-        return super.zugMöglich(feld, von, nach);
+        return super.zugMoeglich(feld, von, nach);
     }
 }
