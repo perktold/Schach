@@ -15,6 +15,10 @@ public class SpielFeld {
     public Figur getFigur(int x, int y){
         return schachmatrix[x][y];
     }
+    
+    public boolean getWeissAmZug() {
+		return weissAmZug;
+    }
 
     public boolean spielZug(Position koordinatenFigur, Position nach){
         Figur figur = getFigur(koordinatenFigur.getX(), koordinatenFigur.getY());
@@ -33,6 +37,7 @@ public class SpielFeld {
     private void move(Position von, Position nach){
         schachmatrix[nach.getX()][nach.getY()] = schachmatrix[von.getX()][von.getY()];
         schachmatrix[von.getX()][von.getY()] = new Figur();
+        weissAmZug = !weissAmZug;
     }
 
     public void ausgabe(){

@@ -11,7 +11,6 @@ import Figuren.Figur;
 public class Main {
     private static Scanner scannerIn;
     public static void main(String[] args) {
-        boolean weissAmZug = true;
         scannerIn = new Scanner(System.in);
 
         //Frame frame = new Frame(strToInt(args[0]), strToInt(args[1]));
@@ -23,12 +22,11 @@ public class Main {
 
         while (!spielFeld.schachMatt()) {
             while (!spielFeld.spielZug(
-            		getPos("mit welcher Figur willst du ziehen " + (weissAmZug?"weiss":"schwarz")),
-                    getPos("wohin willst du ziehen " + (weissAmZug?"weiss":"schwarz"))
+            		getPos("mit welcher Figur willst du ziehen " + (spielFeld.getWeissAmZug()?"weiss":"schwarz")),
+                    getPos("wohin willst du ziehen " + (spielFeld.getWeissAmZug()?"weiss":"schwarz"))
             ));
 
             spielFeld.ausgabe();
-            weissAmZug = !weissAmZug; // anderer Spieler ist im naechsten Zug dran
         }
     }
 

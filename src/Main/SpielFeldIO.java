@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import Figuren.*;
+import Figuren.Laeufer;
 
 public class SpielFeldIO {
 	private static char[][] scanSymbolMatrix(String filepath) throws FileNotFoundException {

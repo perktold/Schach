@@ -12,8 +12,8 @@ public class Laeufer extends Figur {
             this.symbol = 'L';
         }
     }
-
-    public boolean zugMöglich(SpielFeld spielFeld, Position von, Position nach) {
+    
+    public boolean zugMoeglich(SpielFeld spielFeld, Position von, Position nach) {
         int deltaX, deltaY;
 
         deltaX = (von.getX() - nach.getX());
