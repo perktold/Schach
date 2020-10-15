@@ -21,9 +21,6 @@ public class SpielFeld {
 
         if(figur.getSymbol() == ' ') return false;
 
-        if(nach.getX() < 0 || nach.getX() > 7) return false;
-        if(nach.getY() < 0 || nach.getY() > 7) return false;
-
         if(figur.getFarbeWeiss() != weissAmZug) return false;
 
         if(figur.zugMoeglich(this, koordinatenFigur, nach)) {
@@ -93,17 +90,10 @@ public class SpielFeld {
 
         frame.set(4*8+2, 8*2+1, '+');
         
-        //debug
-        //TODO: find out wtf is going on here
-        for(int y = 0; y < schachmatrix.length; y++){ 
-        	for(int x = 0; x < schachmatrix[y].length; x++){
-        		System.out.print(schachmatrix[y][x].getSymbol());
-        	}
-       		System.out.println();
-        }
-        //\debug
+       
 
-        for(int y = 0; y < 7; y++){ for(int x = 0; x < 7; x++){
+        for(int y = 0; y < schachmatrix.length; y++){
+        	for(int x = 0; x < schachmatrix[y].length; x++){
                 frame.set((4*x)+4, (y*2)+2, schachmatrix[x][y].getSymbol());
             }
         }

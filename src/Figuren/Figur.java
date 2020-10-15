@@ -22,11 +22,9 @@ public class Figur {
     }
     
     public boolean zugMoeglich(SpielFeld feld, Position von, Position ziel) {
+    	if(this.getSymbol() == ' ') return false;
     	
         if(von.equals(ziel)){
-            return false;
-        }
-        if(feld.getFigur(von.getX(), von.getY()).getSymbol() == ' '){
             return false;
         }
         if(feld.getFigur(ziel.getX(), ziel.getY()).getSymbol() == ' '){

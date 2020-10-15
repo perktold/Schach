@@ -8,7 +8,7 @@ import Figuren.*;
 
 public class SpielFeldIO {
 	private static char[][] scanSymbolMatrix(String filepath) throws FileNotFoundException {
-		Scanner in = new Scanner(new File("/home/felixp/Workspace/Schach/start.txt"));
+		Scanner in = new Scanner(new File("start.txt"));
 		char[][] symbolMatrix = new char[8][8];
 		
 		for(int y = 0; in.hasNextLine(); y++) {
@@ -41,17 +41,17 @@ public class SpielFeldIO {
 					out[x][y] = new Springer(false);
 				break;			
 				case 'l':
-//					out[x][y] = new Laeufer(true);
+					out[x][y] = new Laeufer(true);
 				break;			
 				case 'L':
-//					out[x][y] = new Laeufer(false);
+					out[x][y] = new Laeufer(false);
 				break;			
-				case 'k':
+//				case 'k':
 //					out[x][y] = new Koenig(true);
-				break;			
-				case 'K':
+//				break;			
+//				case 'K':
 //					out[x][y] = new Koenig(false);
-				break;			
+//				break;			
 				case 'd':
 					out[x][y] = new Dame(true);
 				break;			
