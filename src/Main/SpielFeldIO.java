@@ -47,12 +47,12 @@ public class SpielFeldIO {
 				case 'L':
 					out[x][y] = new Laeufer(false);
 				break;			
-//				case 'k':
-//					out[x][y] = new Koenig(true);
-//				break;			
-//				case 'K':
-//					out[x][y] = new Koenig(false);
-//				break;			
+				case 'k':
+					out[x][y] = new Koenig(true);
+				break;			
+				case 'K':
+					out[x][y] = new Koenig(false);
+				break;			
 				case 'd':
 					out[x][y] = new Dame(true);
 				break;			
@@ -60,7 +60,9 @@ public class SpielFeldIO {
 					out[x][y] = new Dame(false);
 				break;			
 				default:
-					out[x][y] = new Figur(symbolMatrix[y][x]);
+					out[x][y] = new Figur();
+					//System.out.println(symbolMatrix[y][x]+" is not a valid Piece identifier!");
+					// old: out[x][y] = new Figur(symbolMatrix[y][x]);
 				}
 			}
 		}

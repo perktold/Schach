@@ -12,6 +12,8 @@ public class Turm  extends Figur{
             this.symbol = 'T';
         }
     }
+    
+    //TODO: fix Tower logic, cant move more than 3 fields up, down works
     public boolean zugMoeglich(SpielFeld spielFeld, Position von, Position nach) {
         if(von.getX() != nach.getX() && von.getY() != nach.getY()) return false;
         
@@ -37,12 +39,6 @@ public class Turm  extends Figur{
         	}
 
         }
-        
-        //TODO: dont make this hardcoded
-        for(int x = 0; x < 7; x++) {
-        	
-        }
-
         return super.zugMoeglich(spielFeld, von, nach);
     }
 }
