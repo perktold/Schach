@@ -36,18 +36,18 @@ public class Main {
     private static Position getPos(String out){
         while(true) {
             System.out.println(out);
-            try {
-                String strIn = scannerIn.next();
-                if(strIn.matches("[a-h][1-8]$"))
-                {
-                    return new Position((strIn.charAt(0) - 'a'), strIn.charAt(1) - '1');
-                }
-            }catch (Exception e){
-                System.err.println("das hat nicht geklappt, versuchen sie es erneut");
+            String strIn = scannerIn.next();
+            //check if vaild field
+            if(strIn.matches("[a-h][1-8]$")){
+                //convert to coordinates
+                return new Position((strIn.charAt(0) - 'a'), strIn.charAt(1) - '1');
+            }else{
+            System.err.println("Feld existiert nicht!");
             }
         }
     }
-    public static String getNextLine(){
+    
+    /*public static String getNextLine(){
         while(true) {
             try {
                 return scannerIn.nextLine();
@@ -55,5 +55,5 @@ public class Main {
                 e.printStackTrace();
             }
         }
-    }
+    }*/
 }

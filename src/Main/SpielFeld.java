@@ -22,16 +22,12 @@ public class SpielFeld {
 
     public boolean spielZug(Position koordinatenFigur, Position nach){
         Figur figur = getFigur(koordinatenFigur.getX(), koordinatenFigur.getY());
-
-        if(figur.getSymbol() == ' ') return false;
-
-        if(figur.getFarbeWeiss() != weissAmZug) return false;
-
         if(figur.zugMoeglich(this, koordinatenFigur, nach)) {
             move(koordinatenFigur, nach);
-        }else return false;
+            return true;
+        }
+        return false;
 
-        return true;
     }
 
     private void move(Position von, Position nach){
