@@ -20,7 +20,7 @@ public class SpielFeld {
 		return weissAmZug;
     }
 
-    public boolean spielZug(Position koordinatenFigur, Position nach){
+    protected boolean spielZug(Position koordinatenFigur, Position nach){
         Figur figur = getFigur(koordinatenFigur.getX(), koordinatenFigur.getY());
         if(figur.zugMoeglich(this, koordinatenFigur, nach)) {
             move(koordinatenFigur, nach);

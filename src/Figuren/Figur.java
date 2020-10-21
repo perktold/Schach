@@ -12,27 +12,26 @@ public class Figur {
     }
     
     public Figur(char symbol) {
-    	if(Character.isUpperCase(symbol)) {
-    		this.farbeWeiss=false;
-    	}else {
-    		this.farbeWeiss=true;
-    	}
+        this.farbeWeiss = !Character.isUpperCase(symbol);
+
     	this.symbol = symbol;
     	this.bewegt = false;
     
     } 
     public boolean zugMoeglich(SpielFeld feld, Position von, Position ziel) {
-    	//if piece is empty
+
+        if(feld.getWeissAmZug() != this.getFarbeWeiss()) return false;
+
+    	//if player tries to move empty field
     	if(this.getSymbol() == ' ') return false;
     	
     	//if piece doesnt get moved
         if(von.equals(ziel))return false;
-        
-        //if piece is false color
-        if(feld.getFigur(ziel.getX(), ziel.getY()).farbeWeiss == this.farbeWeiss) return false;
-        
-        //check if piece that gets moved is color of current player
-        //if(this.getFarbeWeiss() != )
+
+        //if piece of same color is on destination field
+        Figur zielfigur = feld.getFigur(ziel.getX(), ziel.getY());
+        if(zielfigur.symbol != ' ' && zielfigur.farbeWeiss == this.farbeWeiss) return false;
+
         return true;
     }
     
