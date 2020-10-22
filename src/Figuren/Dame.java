@@ -14,19 +14,11 @@ public class Dame extends Figur {
     }
     public boolean zugMoeglich(SpielFeld feld, Position von, Position nach) {
         int deltaX, deltaY;
-
-        // calculate delta X and Y
-        deltaX = (von.getX() - nach.getX());
-        if(deltaX < 0) deltaX = deltaX*-1;
-
-        deltaY = (von.getY() - nach.getY());
-        if(deltaY < 0) deltaY = deltaY*-1;
-
-        //darf nicht stehen bleiben
-        if(deltaX == 0 && deltaY == 0) return false;
-
-        boolean geraderZug = von.getX() == nach.getX() || von.getY() == nach.getY();
-        boolean diagonalerZug = deltaX == deltaY;
+        deltaX = Math.abs(nach.getX() - von.getX());
+        deltaY = Math.abs(nach.getY() - von.getY());
+        
+        boolean geraderZug = !(deltaX != 0 && deltaY != 0);
+        boolean diagonalerZug = deltaX / deltaY == 0;
 
         if(!geraderZug && !diagonalerZug) return false;
 
