@@ -14,20 +14,30 @@ public class Laeufer extends Figur {
     }
     
     public boolean zugMoeglich(SpielFeld spielFeld, Position von, Position nach) {
-        int deltaX, deltaY;
+        int diffX, diffY;
+        int deltaX, deltaY, delta;
 
-        deltaX = (von.getX() - nach.getX());
-        if(deltaX < 0) deltaX = deltaX*-1;
+        diffX = (nach.getX() - von.getX());
+        deltaX = Math.abs(diffX);
 
-        deltaY = (von.getY() - nach.getY());
-        if(deltaY < 0) deltaY = deltaY*-1;
-
-        //darf nicht stehen bleiben
-        if(deltaX == 0) return false;
-        if(deltaY == 0) return false;
+        diffY = (nach.getY() - von.getY());
+        deltaY = Math.abs(diffY);
 
         //muss diagonal laufen
         if(deltaX != deltaY) return false;
+        delta = deltaX;
+
+        if(diffX*diffY > 0) {
+            for (int i = 0; i != delta; i += diffX>0?1:-1) {
+                //skip von/nach Fields (they are supposed to have chesspieces on them)
+                if(i==0 || von.getX()+i == nach.getX()) continue;
+                if (spielFeld.getFigur(von.getX() + i, von.getY() + i).symbol != ' ') return false;
+            }
+        }else{
+            for(int i = 0; i != delta; i += diffX>0?1:-1){
+                if (spielFeld.getFigur(von.getX() + i, von.getY() - i).symbol != ' ') return false;
+            }
+        }
 
         return super.zugMoeglich(spielFeld, von, nach);
     }

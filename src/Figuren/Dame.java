@@ -17,8 +17,8 @@ public class Dame extends Figur {
         deltaX = Math.abs(nach.getX() - von.getX());
         deltaY = Math.abs(nach.getY() - von.getY());
         
-        boolean geraderZug = !(deltaX != 0 && deltaY != 0);
-        boolean diagonalerZug = deltaX / deltaY == 0;
+        boolean geraderZug = deltaX == 0 || deltaY == 0;
+        boolean diagonalerZug = deltaX == deltaY;
 
         if(!geraderZug && !diagonalerZug) return false;
 

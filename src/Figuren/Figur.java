@@ -26,7 +26,7 @@ public class Figur {
     	if(this.getSymbol() == ' ') return false;
     	
     	//if piece doesnt get moved
-        if(von.equals(ziel))return false;
+        if(von.equals(ziel)) return false;
 
         //if piece of same color is on destination field
         Figur zielfigur = feld.getFigur(ziel.getX(), ziel.getY());
