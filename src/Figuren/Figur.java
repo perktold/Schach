@@ -41,4 +41,7 @@ public class Figur {
     public char getSymbol(){
         return symbol;
     }
+    public void setBewegt() {
+    	this.bewegt = true;
+    }
 }

@@ -17,11 +17,8 @@ public class Bauer extends Figur {
     public boolean zugMoeglich(SpielFeld spielFeld, Position von, Position nach) {
         int deltaX, deltaY;
 
-        deltaX = (von.getX() - nach.getX());
-        if(deltaX < 0) deltaX = deltaX*-1;
-
-        deltaY = (von.getY() - nach.getY());
-        if(deltaY < 0) deltaY = deltaY*-1;
+        deltaX = Math.abs(von.getX() - nach.getX());
+        deltaY = Math.abs(von.getY() - nach.getY());
 
         if(farbeWeiss){
 

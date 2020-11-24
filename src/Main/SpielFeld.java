@@ -24,6 +24,7 @@ public class SpielFeld {
         Figur figur = getFigur(koordinatenFigur.getX(), koordinatenFigur.getY());
         if(figur.zugMoeglich(this, koordinatenFigur, nach)) {
             move(koordinatenFigur, nach);
+            figur.setBewegt();
             return true;
         }
         return false;
