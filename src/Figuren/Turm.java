@@ -20,10 +20,10 @@ public class Turm  extends Figur{
          
          if(deltaX != 0 && deltaY != 0) return false;
          //TODO: Testing this part
-         for(int i = von.getX(); i<nach.getX();i++) {
+         for(int i = von.getX()+1; i<nach.getX();i++) {
         	 if(spielFeld.getFigur(i,von.getY()).getSymbol() != ' ')return false;
          }
-         for(int i = von.getY(); i<nach.getY();i++) {
+         for(int i = von.getY()+1; i<nach.getY();i++) {
         	 if(spielFeld.getFigur(i,von.getX()).getSymbol() != ' ')return false;
          }
         return super.zugMoeglich(spielFeld, von, nach);

@@ -35,6 +35,7 @@ public class Laeufer extends Figur {
             }
         }else{
             for(int i = 0; i != delta; i += diffX>0?1:-1){
+            	if(i==0 || von.getX()+i == nach.getX()) continue;
                 if (spielFeld.getFigur(von.getX() + i, von.getY() - i).getSymbol() != ' ') return false;
             }
         }
