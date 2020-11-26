@@ -19,6 +19,13 @@ public class Turm  extends Figur{
          deltaY = Math.abs(nach.getY() - von.getY());
          
          if(deltaX != 0 && deltaY != 0) return false;
+         //TODO: Testing this part
+         for(int i = von.getX(); i<nach.getX();i++) {
+        	 if(spielFeld.getFigur(i,von.getY()).getSymbol() != ' ')return false;
+         }
+         for(int i = von.getY(); i<nach.getY();i++) {
+        	 if(spielFeld.getFigur(i,von.getX()).getSymbol() != ' ')return false;
+         }
         return super.zugMoeglich(spielFeld, von, nach);
     }
 }

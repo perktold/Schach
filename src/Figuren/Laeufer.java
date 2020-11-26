@@ -31,11 +31,11 @@ public class Laeufer extends Figur {
             for (int i = 0; i != delta; i += diffX>0?1:-1) {
                 //skip von/nach Fields (they are supposed to have chesspieces on them)
                 if(i==0 || von.getX()+i == nach.getX()) continue;
-                if (spielFeld.getFigur(von.getX() + i, von.getY() + i).symbol != ' ') return false;
+                if (spielFeld.getFigur(von.getX() + i, von.getY() + i).getSymbol() != ' ') return false;
             }
         }else{
             for(int i = 0; i != delta; i += diffX>0?1:-1){
-                if (spielFeld.getFigur(von.getX() + i, von.getY() - i).symbol != ' ') return false;
+                if (spielFeld.getFigur(von.getX() + i, von.getY() - i).getSymbol() != ' ') return false;
             }
         }
 
